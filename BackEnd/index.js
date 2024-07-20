@@ -7,6 +7,11 @@ var app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:4200' }));
 
+
+app.use('/api/product', require('./routes/product.route.js'));
+app.use('/api/supplier', require('./routes/supplier.route.js'));
+app.use('/api/user', require('./routes/user.route.js'));
+
 app.set('port', process.env.PORT || 3000);
 
 //starting the server
