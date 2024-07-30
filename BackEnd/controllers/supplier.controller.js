@@ -1,14 +1,32 @@
 const Supplier = require('../models/supplier');
 const supplierCtrl = {}
 
+//Generate number for supplier
+async function generateNumber() {
+    try {
+        const lastSupplier = await Supplier.findOne().sort({ number: -1 }).exec();
+        if (!lastSupplier) {
+            return 'S0001';
+        }
+        const lastNumber = parseInt(lastSupplier.number.substring(1));
+        const newNumber = lastNumber + 1;
+        const newSupplierNumber = `S${newNumber.toString().padStart(4, '0')}`; 
+        return newSupplierNumber;
+    } catch (error) {
+        throw new Error('error generating supplier number');
+    }
+}
+
 //Register a Supplier
 supplierCtrl.create = async (req, res) => {
-    var supplier = new Supplier(req.body);
     try {
+        const newNumber = await generateNumber();
+        var supplier = new Supplier({...req.body, number: newNumber });
         await supplier.save();
         res.json({
             'status': '1',
-            'msg': 'Supplier created'
+            'msg': 'Supplier created',
+            supplier
         })
     } catch (error) {
         res.status(400).json({
@@ -63,6 +81,7 @@ supplierCtrl.getById = async (req, res) => {
     var supplier = await Supplier.findById(req.params.id);
     res.json(supplier);
 }
+
 
 
 module.exports = supplierCtrl;
