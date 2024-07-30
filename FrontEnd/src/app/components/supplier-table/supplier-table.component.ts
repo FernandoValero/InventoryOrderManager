@@ -22,6 +22,7 @@ export class SupplierTableComponent {
     this.loadSuppliers();
   }
 
+  // Load suppliers to display in table
   public loadSuppliers(): void {
     this.supplierService.getAll().subscribe(
       (result) => {
@@ -34,14 +35,17 @@ export class SupplierTableComponent {
     )
   }
 
+  // Navigate to the supplier form to add a supplier
   public registerSupplier(){
     this.router.navigate(['supplier-form/',0]);
   }
 
+  // Navigate to the supplier form to edit a supplier
   public updateSupplier(supplier: Supplier){
     this.router.navigate(['supplier-form/', supplier._id]);
   }
 
+  // Delete a supplier from the database and table
   public deleteSupplier(supplier: Supplier){
     this.supplierService.delete(supplier._id).subscribe(
       (result) => {
