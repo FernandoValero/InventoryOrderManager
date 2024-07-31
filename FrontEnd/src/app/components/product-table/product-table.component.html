@@ -1,6 +1,6 @@
 <body class="py-10">
-      <div class="container mx-auto p-11">
-        
+    <div class="container mx-auto p-11">
+
         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
             <div>
                 <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio"
@@ -38,12 +38,13 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" (click)="registerSupplier()"
+            <button type="button" (click)="registerProduct()"
                 class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Register
-                supplier</button>
+                product</button>
             <label for="table-search" class="sr-only">Search</label>
             <div class="relative">
-                <div class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
+                <div
+                    class="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor"
                         viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -68,13 +69,19 @@
                             Name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Phone Number
+                            Price
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Email
+                            Quantity
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Company
+                            Description
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Categoria
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Expiration Date
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Action
@@ -83,34 +90,40 @@
                 </thead>
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-                        *ngFor="let s of suppliers">
+                        *ngFor="let p of products">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{s.number}}
+                            {{p.number}}
                         </th>
                         <td class="px-6 py-4">
-                            {{s.lastName}}, {{s.firstName}}
+                            {{p.name}}
                         </td>
                         <td class="px-6 py-4">
-                            {{s.phoneNumber}}
+                            {{p.price}}
                         </td>
                         <td class="px-6 py-4">
-                            {{s.email}}
+                            {{p.quantity}}
                         </td>
                         <td class="px-6 py-4">
-                            {{s.company}}
+                            {{p.description}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{p.category}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{p.expirationDate | date: 'dd/MM/yyyy'}}
                         </td>
                         <td class="px-6 py-4">
                             <div class="actions">
-                                <button class="button-action" (click)="updateSupplier(s)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"
-                                        viewBox="0 0 16 16">
+                                <button class="button-action" (click)="updateProduct(p)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                         <path
                                             d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
                                     </svg>
-                                </button> 
-                                <button class="button-action" (click)="deleteSupplier(s)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill"
-                                        viewBox="0 0 16 16">
+                                </button>
+                                <button class="button-action" (click)="deleteProduct(p)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                         <path
                                             d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
                                     </svg>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const supplier = require('./supplier');
 const { Schema } = mongoose;
 
 const ProductSchema = new Schema({
@@ -7,10 +8,11 @@ const ProductSchema = new Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
     quantity: { type: Number, required: true },
-    description : { type: String, required: true},
-    category: { type: String, required: true},
+    description : { type: String, required: true },
+    category: { type: String, required: true },
     expirationDate: { type: Date, required: true },
-    supplier : { type: String, required: true},
+    creationDate: { type: Date, required: true },
+    supplier: { type: Schema.Types.ObjectId, ref: supplier, required: true },
 })
 
 module.exports = mongoose.models.Product || mongoose.model('Product', ProductSchema);
