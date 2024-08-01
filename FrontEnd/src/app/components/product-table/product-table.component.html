@@ -81,7 +81,13 @@
                             Categoria
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Creation Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Expiration Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Supplier
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Action
@@ -110,7 +116,13 @@
                             {{p.category}}
                         </td>
                         <td class="px-6 py-4">
+                            {{p.creationDate | date: 'dd/MM/yyyy'}}
+                        </td>
+                        <td class="px-6 py-4">
                             {{p.expirationDate | date: 'dd/MM/yyyy'}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{p.supplier.lastName}}, {{p.supplier.firstName}}
                         </td>
                         <td class="px-6 py-4">
                             <div class="actions">

@@ -5,6 +5,8 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Notyf } from 'notyf';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
+import { Supplier } from '../../models/supplier';
+import { SupplierService } from '../../services/supplier.service';
 
 @Component({
   selector: 'app-product-form',
@@ -24,10 +26,12 @@ export class ProductFormComponent {
   });
 
   product!: Product;
+  suppliers!: Supplier[]
   action!: string;
   constructor(private productService: ProductService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router) {
+              private activatedRoute: ActivatedRoute,
+              private router: Router,
+              private supplierService: SupplierService) {
     this.initVariables();
   }
 
@@ -44,8 +48,10 @@ export class ProductFormComponent {
   }
 
   //Initialize variables
-  public initVariables() {
+  public initVariables(): void {
     this.product = new Product();
+    this.suppliers = [];
+    this.loadSuppliers();
   }
 
   //Register a new product 
@@ -63,6 +69,19 @@ export class ProductFormComponent {
   }
 
 
+  //Load all suppliers
+  public loadSuppliers(): void {
+    this.supplierService.getAll().subscribe(
+      (result) => {
+        this.suppliers = [];
+        this.suppliers = result;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
   //Load the product to the form for update
   public loadProductToForm(idProduct: string): void {
     this.productService.getById(idProduct).subscribe(
@@ -76,7 +95,7 @@ export class ProductFormComponent {
   }
 
   //Update an existing product
-  public updateProduct(product: Product) {
+  public updateProduct(product: Product): void {
     this.productService.update(product).subscribe(
       (result) => {
         if (result.status == 1) {

@@ -48,16 +48,18 @@
 
             <div>
                 <label for="expirationDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Expiration Date</label>
-                <input [(ngModel)]="product.expirationDate " name="expirationDate" type="text" id="expirationDate"
+                <input [(ngModel)]="product.expirationDate " name="expirationDate" type="date" id="expirationDate"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required />
             </div>
 
             <div>
-                <label for="supplier" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supplier</label>
-                <input [(ngModel)]="product.supplier" name="supplier" type="text" id="supplier"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required />
+                <label for="supplier" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an Supplier</label>
+                <select [(ngModel)]="product.supplier" id="supplier" name="supplier"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="null" disabled selected >Choose a Supplier</option>
+                    <option *ngFor="let s of suppliers" [ngValue]="s">{{s.lastName}}, {{s.firstName}}</option>
+                </select>
             </div>
         </div>
 

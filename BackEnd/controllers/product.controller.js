@@ -10,7 +10,7 @@ async function generateNumber() {
         }
         const lastNumber = parseInt(lastProduct.number.substring(1));
         const newNumber = lastNumber + 1;
-        const newProductNumber = `S${newNumber.toString().padStart(4, '0')}`;
+        const newProductNumber = `P${newNumber.toString().padStart(4, '0')}`;
         return newProductNumber;
     } catch (error) {
         throw new Error('error generating product number');

@@ -45,7 +45,7 @@ export class SupplierFormComponent {
   }
 
   //Initialize variables
-  public initVariables(){
+  public initVariables(): void{
     this.supplier = new Supplier();
   }
 
@@ -77,7 +77,7 @@ export class SupplierFormComponent {
   }
 
   //Update an existing Supplier
-  public updateSupplier(supplier: Supplier){
+  public updateSupplier(supplier: Supplier): void{
     this.supplierService.update(supplier).subscribe(
       (result) => {
         if (result.status == 1){

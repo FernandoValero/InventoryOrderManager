@@ -5,7 +5,7 @@ export class Product {
     number: string;
     barCode: string;
     name: string;
-    price: string;
+    price: number;
     quantity: number;
     description: string;
     category: string;
@@ -15,9 +15,9 @@ export class Product {
 
     constructor(){
         this.number = '';
-        this.barCode = '';
+        this.barCode = 'undefined';
         this.name = '';
-        this.price = '';
+        this.price = 0;
         this.quantity = 0;
         this.description = '';
         this.category = '';
