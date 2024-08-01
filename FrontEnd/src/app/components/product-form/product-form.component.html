@@ -1,0 +1,72 @@
+<form class="form container mx-auto m-20 p-5  dark:bg-gray-800 rounded-2xl" #formSupplier="ngForm">
+    <div class="title">
+        <h2 *ngIf="action =='new'" class="text-2xl font-bold text-gray-900 dark:text-white">
+            Register Supplier
+        </h2>
+        <h2 *ngIf="action =='update'" class="text-2xl font-bold text-gray-900 dark:text-white">
+            Update Supplier
+        </h2>
+    </div>
+    <div class="container mx-auto  ps-20 pe-20 dark:bg-gray-800">
+
+        <div>
+            <div>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product name</label>
+                <input [(ngModel)]="product.name" name="name" type="text" id="name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+
+            <div>
+                <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                <input [(ngModel)]="product.price" name="price" type="number" id="price"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            
+            <div>
+                <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quantity</label>
+                <input [(ngModel)]="product.quantity" name="quantity" type="number" id="quantity"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+
+            <div>
+                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <input [(ngModel)]="product.description" name="description" type="text" id="description"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+
+            <div>
+                <label for="category"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                <input [(ngModel)]="product.category" name="category" type="text" id="category"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+
+            <div>
+                <label for="expirationDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Expiration Date</label>
+                <input [(ngModel)]="product.expirationDate " name="expirationDate" type="date" id="expirationDate"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+
+            <div>
+                <label for="supplier" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an Supplier</label>
+                <select [(ngModel)]="product.supplier" id="supplier" name="supplier"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="null" disabled selected >Choose a Supplier</option>
+                    <option *ngFor="let s of suppliers" [ngValue]="s">{{s.lastName}}, {{s.firstName}}</option>
+                </select>
+            </div>
+        </div>
+
+        <button *ngIf="action == 'new'" (click)="registerProduct()"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
+        <button *ngIf="action == 'update'" (click)="updateProduct(product)"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+
+    </div>
+</form>

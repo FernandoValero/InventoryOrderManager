@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SupplierService } from '../../services/supplier.service';
 import { Supplier } from '../../models/supplier';
-import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class SupplierTableComponent {
 
-  suppliers: Array<Supplier>;
+  suppliers: Supplier[];
 
   constructor(private supplierService: SupplierService,
               private router: Router) {
@@ -36,17 +35,17 @@ export class SupplierTableComponent {
   }
 
   // Navigate to the supplier form to add a supplier
-  public registerSupplier(){
+  public registerSupplier(): void {
     this.router.navigate(['supplier-form/',0]);
   }
 
   // Navigate to the supplier form to edit a supplier
-  public updateSupplier(supplier: Supplier){
+  public updateSupplier(supplier: Supplier): void {
     this.router.navigate(['supplier-form/', supplier._id]);
   }
 
   // Delete a supplier from the database and table
-  public deleteSupplier(supplier: Supplier){
+  public deleteSupplier(supplier: Supplier): void {
     this.supplierService.delete(supplier._id).subscribe(
       (result) => {
         this.loadSuppliers();
