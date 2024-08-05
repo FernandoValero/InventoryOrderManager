@@ -1,0 +1,121 @@
+<body>
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido a DaniCodex</h2>
+                <p>Si ya tienes una cuenta por favor inicia sesion aqui</p>
+                <button class="sign-up-btn">Iniciar Sesion</button>
+            </div>
+        </div>
+        <form class="form container mx-auto m-20 p-5 formulario dark:bg-gray-800 rounded-2xl" name="form-login">
+           <div class="container mx-auto  ps-20 pe-20 dark:bg-gray-800">
+            <h2 class="create-account">Crear una cuenta</h2>
+            
+            <div>
+                <label for="user_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User
+                    name</label>
+                <input [(ngModel)]="userSignUp.userName" name="userName" type="text" id="user_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            <div>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
+                    Name</label>
+                <input [(ngModel)]="userSignUp.firstName" name="firstName" type="text" id="first_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            <div>
+                <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                    name</label>
+                <input [(ngModel)]="userSignUp.lastName" name="lastName" type="text" id="last_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                <input [(ngModel)]="userSignUp.email" name="email" type="email" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            <div>
+                <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                    number</label>
+                <input [(ngModel)]="userSignUp.phoneNumber" name="phoneNumber" type="tel" id="phone"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            
+            
+            <div>
+                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
+                    Role</label>
+                <select [(ngModel)]="userSignUp.role" id="role" name="role"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="null" disabled selected>Choose a Supplier</option>
+                    <option value="deliberyPerson">Delibery Person</option>
+                    <option value="client">Client</option>
+                </select>
+            </div>
+            <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                <input [(ngModel)]="userSignUp.password" name="password" type="password" id="password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required />
+            </div>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle'></i>
+                </div>
+            </div>
+            <input type="button" value="Registrarse">
+           </div>
+            
+        </form>
+    </div>
+    <div class="container-form sign-in">
+        <form class="form container mx-auto m-20 p-5 formulario dark:bg-gray-800 rounded-2xl" name="form-login">
+            <div class="container mx-auto  ps-20 pe-20 dark:bg-gray-800">
+                <h2 class="create-account">Iniciar Sesion</h2>
+                <div class="iconos">
+                    <div class="border-icon">
+                        <i class='bx bxl-instagram'></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-linkedin'></i>
+                    </div>
+                    <div class="border-icon">
+                        <i class='bx bxl-facebook-circle'></i>
+                    </div>
+                </div>
+                <div>
+                    <label for="user_name_sign_in" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User
+                        name</label>
+                    <input [(ngModel)]="userSignIn.userName" name="userName-sign-in" type="text" id="user_name_sign_in"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required />
+                </div>
+                <div>
+                    <label for="password_sign_in" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                    <input [(ngModel)]="userSignIn.password" name="password_sign_in" type="password" id="password_sign_in"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required />
+                </div>
+                <input type="button" value="Sign In">
+            </div>
+        </form>
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Si aun no tienes una cuenta por favor registrese aqui</p>
+                <button class="sign-in-btn">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</body>

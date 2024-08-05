@@ -20,9 +20,12 @@ router.delete('/:id', userCtrl.delete);
 
 
 //Create a new type of user 
-router.post('/client', clientCtrl.create);
-router.post('/deliveryPerson', deliveryPersonCtrl.create);
-router.post('/administrator', administratorCtrl.create);
-router.post('/owner', ownerCtrl.create);
+router.post('/Client', clientCtrl.create);
+router.post('/DeliveryPerson', deliveryPersonCtrl.create);
+router.post('/Administrator', administratorCtrl.create);
+router.post('/Owner', ownerCtrl.create);
+
+//Login
+router.post('/login', userCtrl.login);
 
 module.exports = router;

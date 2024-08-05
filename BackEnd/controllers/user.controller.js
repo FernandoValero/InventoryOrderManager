@@ -46,4 +46,36 @@ userCtrl.update = async (req, res) => {
     }
 }
 
+//Log in user
+userCtrl.login = async (req, res) => {
+
+    const criteria = {
+        userName: req.body.userName,
+        password: req.body.password
+    }
+
+    try {
+        const user = await User.findOne(criteria);
+        if (!user) {
+            res.json({
+                status: 0,
+                msg: "not found"
+            })
+        } else {
+            res.json({
+                status: 1,
+                msg: "success",
+                userId: user._id,
+                userName : user.userName,
+                role: user.role
+            })
+        }
+    } catch (error) {
+            res.json({
+                status: 0,
+                msg: "error"
+            })
+    }
+}
+
 module.exports = userCtrl;

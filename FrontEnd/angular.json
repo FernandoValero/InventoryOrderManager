@@ -29,7 +29,8 @@
               "node_modules/notyf/notyf.min.css"
             ],
             "scripts": [
-              "node_modules/flowbite/dist/flowbite.min.js"
+              "node_modules/flowbite/dist/flowbite.min.js",
+              "src/assets/scripts.js"
             ]
           },
           "configurations": {
