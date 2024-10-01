@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SupplierService } from '../../services/supplier.service';
 import { Supplier } from '../../models/supplier';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
